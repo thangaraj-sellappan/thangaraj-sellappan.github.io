@@ -28,12 +28,76 @@ body {
     color: var(--foreground);
     line-height: 1.6;
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Northern Lights Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(0, 255, 150, 0.12) 25%,
+        rgba(100, 50, 255, 0.10) 50%,
+        rgba(0, 200, 100, 0.08) 75%,
+        transparent 100%
+    );
+    animation: northernLights 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        -45deg,
+        transparent 0%,
+        rgba(150, 0, 255, 0.10) 25%,
+        rgba(0, 255, 150, 0.12) 50%,
+        rgba(120, 50, 200, 0.08) 75%,
+        transparent 100%
+    );
+    animation: northernLights 25s ease-in-out infinite reverse;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes northernLights {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translate(-10%, 10%) rotate(5deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(10%, -10%) rotate(-5deg);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translate(-5%, -5%) rotate(3deg);
+        opacity: 0.6;
+    }
 }
 
 .container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 /* Header Styles */
@@ -45,6 +109,37 @@ body {
     border-bottom: 1px solid var(--border);
     background-color: rgba(37, 37, 37, 0.8);
     animation: slideDown 0.5s ease-out;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 255, 150, 0.15) 25%,
+        rgba(150, 50, 255, 0.12) 50%,
+        rgba(0, 200, 100, 0.10) 75%,
+        transparent 100%
+    );
+    animation: headerLights 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes headerLights {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateX(50%);
+        opacity: 0.6;
+    }
 }
 
 @keyframes slideDown {
@@ -63,6 +158,8 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 4rem;
+    position: relative;
+    z-index: 1;
 }
 
 .logo-text {
