@@ -6,15 +6,15 @@
 }
 
 :root {
-    --background: #252525;
-    --foreground: #fbfbfb;
-    --card: #343434;
-    --muted: #454545;
-    --muted-foreground: #b5b5b5;
-    --primary: #ebebeb;
-    --primary-foreground: #343434;
-    --secondary: #454545;
-    --border: rgba(255, 255, 255, 0.1);
+    --background: #080808;
+    --foreground: #f0f0f0;
+    --card: #0d0d0d;
+    --muted: #141414;
+    --muted-foreground: #a0a0a0;
+    --primary: #e5e5e5;
+    --primary-foreground: #0d0d0d;
+    --secondary: #141414;
+    --border: rgba(255, 255, 255, 0.08);
     --radius: 0.625rem;
 }
 
@@ -107,7 +107,7 @@ body::after {
     z-index: 50;
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    background-color: rgba(37, 37, 37, 0.8);
+    background-color: rgba(8, 8, 8, 0.85);
     animation: slideDown 0.5s ease-out;
     overflow: hidden;
 }
